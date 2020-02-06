@@ -42,7 +42,7 @@ def tokenize(text):
 def build_model():
     pipeline = Pipeline([
         ('vect', TfidfVectorizer(tokenizer=tokenize)),
-        ('best', TruncatedSVD(n_components=10)),
+        ('best', TruncatedSVD(n_components=100)),
         ('clf',  MultiOutputClassifier(AdaBoostClassifier()))
     ])
     parameters = { 'clf__estimator__n_estimators': [10, 30]
