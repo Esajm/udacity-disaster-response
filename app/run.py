@@ -10,6 +10,7 @@ from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
+from plotly.graph_objs import Heatmap
 
 
 app = Flask(__name__)
@@ -43,9 +44,12 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
-    # target distribution
-    target_distribution = df.drop(['id','message','original','genre'], axis=1).mean()
-    target_names = list(target_distribution.index)
+    
+    y = df.drop(['id', 'message', 'original', 'genre'], axis=1).astype(float)
+    cat_names = y.columns.values
+    cat_counts = [sum(y[x]) for x in cat_names]
+    corr = y.corr()
+    labels = y.columns.values
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -68,21 +72,35 @@ def index():
                 }
             }
         },
-         {
+        {
             'data': [
-                Bar(
-                    x=target_names,
-                    y=target_distribution
+                Heatmap(
+                    z=corr.values,
+                    x=labels,
+                    y=labels
                 )
             ],
 
             'layout': {
-                'title': 'Percentage of Needs',
+                'title': 'Categories Correlation',
+                'height': 1000
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=cat_names,
+                    y=cat_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message categories',
                 'yaxis': {
                     'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Needs"
+                    'title': "Genre"
                 }
             }
         }
