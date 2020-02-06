@@ -20,7 +20,7 @@ In the Project Workspace/data, we have a data set containing real messages that 
 THis project will include a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data.
 
 ### Project Files
-There are three Files of this project.
+There are two important Files of this project.
 
 1. ETL Pipeline
 
@@ -34,5 +34,5 @@ Stores it as a SQLite db
 
 In a Python machine learning pipeline script that train our model then export it as a pickle file
 
-### Project Screenshots
+### Project Screenshots (Flask Web App)
 
