@@ -35,4 +35,12 @@ Stores it as a SQLite db
 In a Python machine learning pipeline script that train our model then export it as a pickle file
 
 ### Project Screenshots (Flask Web App)
+![Screen Shot 2020-02-07 at 00 59 27](https://user-images.githubusercontent.com/3581558/73986069-cc78ce00-494d-11ea-89e8-ae46e396856c.png)
+
+![Screen Shot 2020-02-07 at 00 59 48](https://user-images.githubusercontent.com/3581558/73986079-d1d61880-494d-11ea-9380-81e0432af491.png)
+
+![Screen Shot 2020-02-07 at 01 01 02](https://user-images.githubusercontent.com/3581558/73986091-d5699f80-494d-11ea-997b-440da4566212.png)
+
+![Screen Shot 2020-02-07 at 01 00 38](https://user-images.githubusercontent.com/3581558/73986096-d7336300-494d-11ea-91f8-9a86c0919f4d.png)
+
 
